@@ -19,10 +19,10 @@ export default defineComponent({
   },
   created() {
     EventService.getEvent(this.id)
-      .then((response) => {
+      .then((response: any) => {
         this.event = response.data;
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.log(error);
       });
   },

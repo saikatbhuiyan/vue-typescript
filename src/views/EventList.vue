@@ -7,8 +7,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+
+import { EventItem } from "../types";
 import EventCard from "../components/EventCard.vue";
 import EventService from "../services/EventService";
+
 export default defineComponent({
   name: "EventList",
   components: {
@@ -16,15 +19,15 @@ export default defineComponent({
   },
   data() {
     return {
-      events: null,
+      events: [] as EventItem[],
     };
   },
   created() {
     EventService.getEvents()
-      .then((response) => {
+      .then((response: any) => {
         this.events = response.data;
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.log(error);
       });
   },
