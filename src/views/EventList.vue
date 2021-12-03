@@ -31,6 +31,19 @@ export default defineComponent({
         console.log(error);
       });
   },
+  computed: {
+    fistEvent(): EventItem {
+      return this.events[0];
+    },
+  },
+  methods: {
+    addEvent(newEvent: EventItem) {
+      return this.events.push(newEvent);
+    },
+    secondEvent(): EventItem {
+      return this.events[1];
+    },
+  },
 });
 </script>
 
